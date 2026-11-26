@@ -1,0 +1,81 @@
+.section {
+  padding: var(--section-y) var(--gutter);
+  background: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.pillar {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 26px 24px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.pillar:hover {
+  border-color: rgba(5, 99, 109, 0.35);
+  transform: translateY(-3px);
+}
+
+.pillarIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--teal-xlight);
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.pillarTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.pillarText {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.65;
+}
+
+.imgWrap {
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+}

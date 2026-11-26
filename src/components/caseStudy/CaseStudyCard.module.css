@@ -1,0 +1,93 @@
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.card:hover {
+  border-color: rgba(5, 99, 109, 0.35);
+  transform: translateY(-3px);
+}
+
+.imgWrap {
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.card:hover .img {
+  transform: scale(1.04);
+}
+
+.body {
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.industry {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.link:hover {
+  gap: 10px;
+}
+
+.client {
+  font-size: 13px;
+  color: var(--sub);
+  margin: -4px 0 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .img {
+    transition: none;
+  }
+}

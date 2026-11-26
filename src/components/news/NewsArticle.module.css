@@ -1,0 +1,83 @@
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+/* Cover at its natural aspect ratio (news covers are often collages/banners) */
+.cover {
+  position: relative;
+  background: #0b2a30;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(7, 16, 24, 0.25);
+}
+
+.cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 640px;
+  object-fit: cover;
+}
+
+.narrow {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.bodyWrap {
+  padding: 64px var(--gutter) var(--section-y);
+  background: #fff;
+}
+
+.hashtags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.hashtags li {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--teal-mid);
+  background: var(--teal-xlight);
+  padding: 5px 12px;
+  border-radius: var(--r-pill);
+}
+
+.gallery {
+  max-width: var(--max-w);
+  margin: 56px auto 0;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.galleryTitle {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 18px;
+}
+
+/* Same soft grey as the "More …" sections on case studies and blog posts */
+.more {
+  padding: var(--section-y) var(--gutter);
+  background: var(--bg-soft);
+}
+
+.moreHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}

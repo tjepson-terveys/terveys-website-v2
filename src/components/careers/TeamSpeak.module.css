@@ -1,0 +1,145 @@
+.section {
+  padding: var(--section-y) var(--gutter);
+  background: #fff;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 80px;
+  align-items: start;
+}
+
+.heading {
+  margin-bottom: 40px;
+}
+
+.quoteBlock {
+  animation: quoteIn 0.3s ease;
+  margin-bottom: 32px;
+}
+
+@keyframes quoteIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.name {
+  display: block;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--teal);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.role {
+  display: block;
+  font-size: 14px;
+  color: var(--sub);
+  font-weight: 500;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.quote {
+  font-size: 17px;
+  color: var(--body);
+  line-height: 1.8;
+}
+
+.cta {
+  margin-bottom: 36px;
+}
+
+.avatars {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  opacity: 0.55;
+  transition: opacity 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.avatar:hover {
+  opacity: 0.85;
+}
+
+.avatarActive {
+  opacity: 1;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 2px #fff inset;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder tones (from the design) */
+.av1 { background: linear-gradient(135deg, #4a7a7e, #2f5d62); }
+.av2 { background: linear-gradient(135deg, #5a5a7e, #3d3d5e); }
+.av3 { background: linear-gradient(135deg, #7e5a4a, #5e3f31); }
+.av4 { background: linear-gradient(135deg, #4a7e5a, #2f5e3f); }
+.av5 { background: linear-gradient(135deg, #7e7a4a, #5c5832); }
+
+.portrait {
+  position: sticky;
+  top: calc(var(--header-h-scrolled) + 32px);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s;
+}
+
+.portraitImg {
+  object-fit: cover;
+}
+
+.portraitInitials {
+  font-size: clamp(80px, 10vw, 140px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.85);
+  animation: quoteIn 0.4s ease;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .portrait {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quoteBlock,
+  .portraitInitials {
+    animation: none;
+  }
+}

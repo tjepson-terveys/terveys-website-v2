@@ -1,0 +1,41 @@
+.header {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.footer {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.accent {
+  color: var(--teal-light);
+}
+
+.image {
+  display: block;
+  width: auto;
+}
+
+.header .image {
+  height: 32px;
+}
+
+.footer .image {
+  height: 48px;
+}

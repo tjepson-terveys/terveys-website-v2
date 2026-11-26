@@ -1,0 +1,604 @@
+/* ── Hero (sits under the transparent header, like the home hero) ── */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: min(72vh, 680px);
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--header-h) + 80px) var(--gutter) 96px;
+  background: var(--bg-hero);
+  color: #fff;
+}
+
+.heroImg {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(2, 14, 20, 0.82) 0%, rgba(2, 14, 20, 0.45) 60%, rgba(2, 14, 20, 0.15) 100%),
+    linear-gradient(0deg, rgba(2, 14, 20, 0.55) 0%, transparent 45%);
+}
+
+.heroEyebrow {
+  display: inline-block;
+  border-left: 5px solid var(--teal-light);
+  background: rgba(20, 32, 44, 0.55);
+  padding: 6px 18px;
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 300;
+  margin-bottom: 22px;
+}
+
+.heroTitle {
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+}
+
+.heroLead {
+  font-size: clamp(17px, 1.6vw, 21px);
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+/* ── Shared ── */
+.head {
+  margin-bottom: 48px;
+}
+
+.iconCircle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--teal-xlight);
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.eyebrowDark {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 14px;
+}
+
+/* ── Vision & mission ── */
+.vm {
+  padding: var(--section-y) var(--gutter);
+  background: #fff;
+}
+
+.vmGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.vmCard {
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal);
+  padding: 40px 40px 44px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.vmCard:hover {
+  border-color: rgba(5, 99, 109, 0.35);
+  border-top-color: var(--teal);
+  transform: translateY(-3px);
+}
+
+.vmTitle {
+  font-size: clamp(26px, 2.6vw, 34px);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.vmText {
+  font-size: 16px;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+/* ── What makes us different (dark) ── */
+.diff {
+  padding: var(--section-y) var(--gutter);
+  background: var(--bg-dark-intro);
+  color: #fff;
+}
+
+.diffGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 72px;
+  align-items: end;
+}
+
+.diffHeading {
+  font-size: clamp(32px, 3.6vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.pillars {
+  list-style: none;
+  margin-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pillars li {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 300;
+  color: #fff;
+}
+
+.pillars li:last-child {
+  color: var(--teal-light);
+}
+
+.pillarNum {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--teal-light);
+}
+
+.diffBody {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.85;
+}
+
+/* ── Values (same treatment as "Grow without limits" on Careers) ── */
+.values {
+  padding: var(--section-y) var(--gutter);
+  background: #f0ede8;
+  border-top: 1px solid #e0dbd4;
+}
+
+.valuesHead {
+  margin-bottom: 48px;
+}
+
+.valuesHeading {
+  font-size: clamp(40px, 5vw, 70px);
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  max-width: 900px;
+}
+
+/* ── Leadership (dark — the portraits share a dark brand backdrop) ── */
+.leaders {
+  padding: var(--section-y) var(--gutter);
+  background: var(--bg-dark-intro);
+  color: #fff;
+}
+
+.leadersHead {
+  margin-bottom: 56px;
+}
+
+.groupLabel {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+}
+
+.groupLabel::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Executive team — large portrait cards with overlaid captions */
+.execGrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 64px;
+}
+
+.exec {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #18252a;
+  isolation: isolate;
+}
+
+.execImg {
+  object-fit: cover;
+  z-index: -2;
+  transition: transform 0.8s ease;
+}
+
+.exec::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(0deg, rgba(4, 12, 16, 0.92) 0%, rgba(4, 12, 16, 0.35) 32%, transparent 55%);
+  transition: background 0.4s ease;
+}
+
+.exec:hover .execImg {
+  transform: scale(1.04);
+}
+
+.exec:hover::after {
+  background: linear-gradient(0deg, rgba(3, 40, 46, 0.95) 0%, rgba(3, 40, 46, 0.45) 40%, transparent 65%);
+}
+
+.execInfo {
+  position: absolute;
+  left: 28px;
+  right: 84px;
+  bottom: 26px;
+}
+
+.execBar {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--teal-light);
+  margin-bottom: 14px;
+  transition: width 0.3s ease;
+}
+
+.exec:hover .execBar {
+  width: 56px;
+}
+
+.execName {
+  font-size: clamp(20px, 1.9vw, 24px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.execRole {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.78);
+  margin-top: 4px;
+}
+
+.execLinkedin,
+.regionalLinkedin {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(7, 16, 24, 0.4);
+  backdrop-filter: blur(6px);
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.execLinkedin {
+  position: absolute;
+  right: 24px;
+  bottom: 26px;
+}
+
+.execLinkedin:hover,
+.regionalLinkedin:hover {
+  background: var(--teal-light);
+  border-color: var(--teal-light);
+  color: var(--ink);
+}
+
+/* Regional leadership & advisory — compact horizontal cards */
+.regionalGrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.regional {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px 16px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.25s, transform 0.25s, background 0.25s;
+}
+
+.regional:hover {
+  border-color: rgba(0, 214, 184, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-3px);
+}
+
+.regionalPhoto {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #18252a;
+}
+
+.regionalPhoto img {
+  object-fit: cover;
+}
+
+.regionalInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.regionalName {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.regionalRole {
+  font-size: 13px;
+  color: var(--teal-light);
+  margin-top: 4px;
+  line-height: 1.45;
+}
+
+/* ── Clients ── */
+.clients {
+  padding: var(--section-y) var(--gutter);
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+}
+
+.clientsHead {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.clientsHeading {
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.logoGrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.logoCell {
+  background: #fff;
+  border: 1px solid var(--border);
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 22px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.75;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+.logoCell:hover .logo {
+  filter: none;
+  opacity: 1;
+}
+
+/* ── Certifications (dark) ── */
+.certs {
+  padding: var(--section-y) var(--gutter);
+  background: var(--bg-dark-intro);
+  color: #fff;
+}
+
+.certsHead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+
+.certsIntro {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+}
+
+.certGrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.certCard {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 34px 30px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.certCard:hover {
+  border-color: rgba(0, 214, 184, 0.4);
+  transform: translateY(-3px);
+}
+
+.badge {
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+  margin-bottom: 22px;
+}
+
+.certName {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--teal-light);
+  margin-bottom: 10px;
+}
+
+.certText {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.75;
+}
+
+/* ── Notice ── */
+.notice {
+  padding: 64px var(--gutter);
+  background: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .certGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .execGrid {
+    gap: 12px;
+  }
+
+  .execInfo {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .execName {
+    font-size: 18px;
+  }
+
+  .execRole {
+    font-size: 13px;
+  }
+
+  .execLinkedin {
+    top: 14px;
+    right: 14px;
+    bottom: auto;
+  }
+
+  .regionalGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .logoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .diffGrid,
+  .certsHead {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 760px) {
+  .vmGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .vmCard {
+    padding: 32px 26px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-bottom: 64px;
+  }
+
+  .execGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .exec {
+    aspect-ratio: 4 / 3;
+  }
+
+  .execImg {
+    object-position: 50% 22%;
+  }
+
+  .execInfo {
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+  }
+
+  .execName {
+    font-size: 21px;
+  }
+
+  .regionalPhoto {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .logoCell {
+    height: 96px;
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .execImg,
+  .execBar {
+    transition: none;
+  }
+}

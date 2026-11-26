@@ -1,0 +1,181 @@
+/* Square card, as with every card on the site */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 16px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+
+.req {
+  color: var(--teal);
+  margin-left: 2px;
+}
+
+.control {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border-md);
+  border-radius: 0;
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.control::placeholder {
+  color: #6b7280;
+}
+
+.control:focus,
+.control:focus-visible {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(5, 99, 109, 0.18);
+}
+
+select.control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+select.control:has(option[value=""]:checked) {
+  color: #6b7280;
+}
+
+textarea.control {
+  resize: vertical;
+  min-height: 132px;
+  line-height: 1.6;
+}
+
+.invalid {
+  border-color: #b91c1c;
+}
+
+.invalid:focus {
+  border-color: #b91c1c;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.15);
+}
+
+.error {
+  font-size: 13px;
+  color: #b91c1c;
+  line-height: 1.4;
+}
+
+.alert {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-left: 3px solid #b91c1c;
+  background: #fef2f2;
+  color: #991b1b;
+  font-size: 14px;
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.footer {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.note {
+  font-size: 13px;
+  color: var(--sub);
+  line-height: 1.5;
+  max-width: 300px;
+}
+
+.footer button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+  transform: none;
+}
+
+/* Success */
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 24px;
+  gap: 16px;
+}
+
+.successIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--teal-xlight);
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successTitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.successTitle:focus {
+  outline: none;
+}
+
+.successText {
+  font-size: 15px;
+  color: var(--sub);
+  max-width: 340px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 28px 20px;
+  }
+}

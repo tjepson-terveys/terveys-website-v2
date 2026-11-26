@@ -1,0 +1,22 @@
+.section {
+  padding: var(--section-y) var(--gutter);
+  background: #f0ede8;
+  border-top: 1px solid #e0dbd4;
+}
+
+.heading {
+  font-size: clamp(40px, 5vw, 70px);
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 20px;
+}
+
+.sub {
+  font-size: 16px;
+  color: var(--sub);
+  line-height: 1.8;
+  max-width: 720px;
+  margin-bottom: 48px;
+}

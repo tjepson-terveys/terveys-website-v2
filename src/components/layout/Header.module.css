@@ -1,0 +1,176 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  color: #fff;
+  transition: background 0.25s, box-shadow 0.25s;
+}
+
+/* Soft top gradient for legibility over the hero */
+.nav::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 -60px 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(2, 12, 18, 0.6) 0%, transparent 100%);
+  transition: opacity 0.25s;
+}
+
+.scrolled,
+.menuOpen {
+  background: rgba(7, 16, 24, 0.96);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.scrolled::before,
+.menuOpen::before {
+  opacity: 0;
+}
+
+/*
+ * Pages that start on a light background mark themselves with [data-solid-header].
+ * Next.js keeps recently visited pages mounted but hidden (React <Activity> sets an inline
+ * "display: none"), so hidden markers are excluded.
+ */
+:global(body:has([data-solid-header]:not([style*="display: none"]))) .nav {
+  background: rgba(7, 16, 24, 0.96);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+:global(body:has([data-solid-header]:not([style*="display: none"]))) .nav::before {
+  opacity: 0;
+}
+
+.bar {
+  max-width: calc(var(--max-w) + 2 * var(--gutter));
+  margin: 0 auto;
+  height: var(--header-h);
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  transition: height 0.25s;
+}
+
+.scrolled .bar {
+  height: var(--header-h-scrolled);
+}
+
+.navEl {
+  height: 100%;
+}
+
+.links {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  list-style: none;
+  height: 100%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 14px;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.trigger:hover,
+.itemOpen > .trigger {
+  color: var(--teal-light);
+}
+
+.chev {
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.itemOpen .chev {
+  transform: rotate(180deg);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.contact {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 24px;
+  border: 1.5px solid var(--teal-light);
+  border-radius: var(--r-pill);
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.contact:hover {
+  background: var(--teal-light);
+  color: var(--ink);
+}
+
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.lang:hover {
+  color: var(--teal-light);
+}
+
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .navEl,
+  .right {
+    display: none;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+}

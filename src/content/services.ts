@@ -1,4 +1,59 @@
-import type { ContentImage, LinkItem, Rich } from "./types";
+import type { IconName } from "@/components/ui/Icon";
+import type { ContentImage, CtaLink, LinkItem, Rich } from "./types";
+import aiDataPlatforms from "./services/ai-data-platforms";
+
+/** Full service page content (one file per service in ./services/). */
+export type ServiceDetail = {
+  metaTitle: string;
+  metaDescription: string;
+  hero: {
+    eyebrow: string;
+    title: Rich;
+    lead: string;
+    /** Background slideshow — exactly four photos (the crossfade timing assumes four). */
+    backgrounds: [ContentImage, ContentImage, ContentImage, ContentImage];
+    /** Floating collage on the right — exactly three images. */
+    collage: [ContentImage, ContentImage, ContentImage];
+    /** Glass tags floating around the collage (up to four). */
+    chips: string[];
+    buttons: CtaLink[];
+  };
+  overview: {
+    eyebrow: string;
+    heading: Rich;
+    items: Array<{ icon: IconName; title: string; text: string }>;
+  };
+  practices: {
+    id: string;
+    eyebrow: string;
+    heading: string;
+    intro: string;
+    offersLabel: string;
+    /** Accessible name for the sticky index. */
+    indexLabel: string;
+    items: Array<{ id: string; icon: IconName; title: string; intro: string; image: ContentImage; offers: string[] }>;
+  };
+  industries: {
+    id: string;
+    eyebrow: string;
+    heading: string;
+    intro: string;
+    tablistLabel: string;
+    items: Array<{ id: string; label: string; title: string; text: string; image: ContentImage; useCases: string[] }>;
+  };
+  stack: { eyebrow: string; heading: string; intro: string; groups: Array<{ label: string; items: string[] }> };
+  perspective: {
+    eyebrow: string;
+    heading: string;
+    intro: string;
+    prevLabel: string;
+    nextLabel: string;
+    goToLabel: string;
+    items: Array<{ icon: IconName; tag: string; title: string; text: string; image: ContentImage }>;
+  };
+  related: { eyebrow: string; heading: string; intro: string; caseStudySlugs: string[] };
+  cta: { heading: Rich; body: Rich; buttons: CtaLink[]; trust?: string };
+};
 
 export type Service = {
   slug: string;
@@ -12,6 +67,8 @@ export type Service = {
   image: ContentImage;
   /** Lead tile spans two columns. */
   lead?: boolean;
+  /** Full page content. Services without it show the "coming soon" page. */
+  detail?: ServiceDetail;
 };
 
 export const whatWeDo: {
@@ -40,6 +97,7 @@ export const services: Service[] = [
     features: ["Generative AI", "Agentic AI systems", "Data pipelines & platforms", "MLOps & LLMOps"],
     image: { src: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1400&q=80", alt: "" },
     lead: true,
+    detail: aiDataPlatforms,
   },
   {
     slug: "enterprise-applications",
@@ -79,5 +137,5 @@ export const services: Service[] = [
   },
 ];
 
-export const serviceHref = (slug: string) => `/services/${slug}`;
+export const serviceHref = (slug: string) => `/services/${slug}/`;
 export const getService = (slug: string) => services.find((s) => s.slug === slug);

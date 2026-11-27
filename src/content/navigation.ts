@@ -1,6 +1,6 @@
 import type { ContentImage } from "./types";
 import { segments, segmentDeepLink, type SegmentId } from "./healthcare";
-import { services } from "./services";
+import { serviceHref, services } from "./services";
 
 export type NavLink = {
   label: string;
@@ -34,9 +34,9 @@ export const mainNav: NavItem[] = [
     id: "services",
     label: "Services",
     title: "Services",
-    links: services.map((s) => ({ label: s.name, href: "/#capabilities" })),
+    links: services.map((s) => ({ label: s.name, href: serviceHref(s.slug) })),
     feature: {
-      href: "/#capabilities",
+      href: serviceHref("ai-data-platforms"),
       image: { src: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80", alt: "" },
       kicker: "Practice 01",
       text: "Turn data into your competitive advantage with production-grade AI.",

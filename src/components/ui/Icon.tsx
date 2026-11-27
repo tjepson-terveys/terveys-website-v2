@@ -30,6 +30,37 @@ const icons = {
       </>
     ),
   },
+  pulse: { stroke: 1.8, body: <path d="M22 12h-4l-3 9L9 3l-3 9H2" /> },
+  layers: {
+    stroke: 1.8,
+    body: (
+      <>
+        <path d="M12 2L2 7l10 5 10-5z" />
+        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+      </>
+    ),
+  },
+  message: { stroke: 1.8, body: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> },
+  barChart: { stroke: 1.8, body: <path d="M18 20V10M12 20V4M6 20v-6" /> },
+  database: {
+    stroke: 1.8,
+    body: (
+      <>
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      </>
+    ),
+  },
+  monitor: {
+    stroke: 1.8,
+    body: (
+      <>
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
+      </>
+    ),
+  },
   shield: {
     stroke: 1.8,
     body: (

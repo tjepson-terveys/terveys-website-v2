@@ -1,0 +1,608 @@
+/* ════════════════════════════════
+   Service page (AI & Data Platforms and future services)
+   Same visual language as About / Careers: square cards, light-weight headings,
+   dark #071018 bands, teal accents.
+════════════════════════════════ */
+
+/* ── Shared ── */
+.head {
+  margin-bottom: 48px;
+}
+
+.splitHead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+
+.eyebrowDark {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 14px;
+}
+
+.headingDark {
+  font-size: clamp(32px, 3.6vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.introDark {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+}
+
+.accentTeal {
+  color: var(--teal);
+}
+
+.iconCircle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--teal-xlight);
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+/* ── Overview ── */
+.overview {
+  padding: var(--section-y) var(--gutter);
+  background: #fff;
+}
+
+.overviewHeading {
+  max-width: 760px;
+}
+
+.overviewGrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.overviewCard {
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal);
+  padding: 36px 32px 40px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.overviewCard:hover {
+  border-color: rgba(5, 99, 109, 0.35);
+  border-top-color: var(--teal);
+  transform: translateY(-3px);
+}
+
+.overviewTitle {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.overviewText {
+  font-size: 15px;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+/* ── Practice areas: sticky index + stacked cards ── */
+.practices {
+  padding: var(--section-y) var(--gutter);
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+}
+
+.practicesGrid {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.practicesAside {
+  position: sticky;
+  top: calc(var(--header-h-scrolled) + 40px);
+}
+
+.practicesIntro {
+  font-size: 16px;
+  color: var(--sub);
+  line-height: 1.75;
+  margin: 14px 0 32px;
+}
+
+.index ol {
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.indexLink {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 12px 0 12px 14px;
+  border-bottom: 1px solid var(--border);
+  border-left: 2px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--sub);
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.indexLink:hover {
+  color: var(--teal);
+}
+
+.indexActive {
+  color: var(--ink);
+  border-left-color: var(--teal);
+  background: linear-gradient(90deg, var(--teal-xlight), transparent);
+}
+
+.indexNum {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--teal);
+}
+
+.practiceList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.practice {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  background: #fff;
+  border: 1px solid var(--border);
+  scroll-margin-top: calc(var(--header-h-scrolled) + 24px);
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.practice:hover {
+  border-color: rgba(5, 99, 109, 0.35);
+  box-shadow: 0 12px 32px rgba(5, 99, 109, 0.08);
+}
+
+.practiceMedia {
+  position: relative;
+  overflow: hidden;
+  min-height: 240px;
+  background: #0b2a30;
+}
+
+.practiceImg {
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.practice:hover .practiceImg {
+  transform: scale(1.04);
+}
+
+.practiceMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(3, 22, 28, 0.75) 0%, transparent 55%);
+}
+
+.practiceNum {
+  position: absolute;
+  left: 22px;
+  bottom: 16px;
+  z-index: 1;
+  font-size: 44px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.practiceBody {
+  padding: 32px 36px 34px;
+}
+
+.practiceTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.practiceIcon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--teal-xlight);
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.practiceTitle {
+  font-size: clamp(20px, 1.9vw, 24px);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.practiceIntro {
+  font-size: 15px;
+  color: var(--sub);
+  line-height: 1.75;
+  margin-bottom: 22px;
+}
+
+.offersLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+
+.offers {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.offers li,
+.useCases li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.offers li {
+  color: var(--body);
+}
+
+.offers svg,
+.useCases svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.offers svg {
+  color: var(--teal);
+}
+
+/* ── Industries (dark band with tabs) ── */
+.industries {
+  padding: var(--section-y) var(--gutter);
+  background: var(--bg-dark-intro);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.industries::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(640px 420px at 100% 0%, rgba(5, 99, 109, 0.4), transparent 70%);
+  pointer-events: none;
+}
+
+.industries > * {
+  position: relative;
+}
+
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  margin-bottom: 48px;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  padding: 16px 24px;
+  cursor: pointer;
+  white-space: nowrap;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  border: none;
+  background: transparent;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab:hover {
+  color: #fff;
+}
+
+.tabActive {
+  color: #fff;
+  border-bottom-color: var(--teal-light);
+}
+
+.tab:focus-visible {
+  outline-offset: -2px;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: stretch;
+  animation: panelIn 0.45s ease;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panel:focus-visible {
+  outline-offset: 8px;
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.panelMedia {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  background: #0b2a30;
+}
+
+.panelImg {
+  object-fit: cover;
+}
+
+.panelBody {
+  align-self: center;
+}
+
+.panelTitle {
+  font-size: clamp(26px, 2.6vw, 34px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.panelText {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+  margin-bottom: 26px;
+}
+
+.useCases {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.useCases li {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.useCases svg {
+  color: var(--teal-light);
+}
+
+/* ── Technology stack ── */
+.stack {
+  padding: var(--section-y) var(--gutter);
+  background: #fff;
+}
+
+.stackIntro {
+  font-size: 16px;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+.stackGroups {
+  border-top: 1px solid var(--border);
+}
+
+.stackRow {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.stackLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.stackItems {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stackItems li {
+  border: 1px solid var(--border-md);
+  border-radius: var(--r-pill);
+  padding: 7px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--body);
+  background: #fff;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.stackItems li:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--teal-xlight);
+}
+
+/* ── Perspective (same beige band as About "Our Values") ── */
+.perspective {
+  padding: var(--section-y) var(--gutter);
+  background: #f0ede8;
+  border-top: 1px solid #e0dbd4;
+}
+
+.perspectiveHeading {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  max-width: 900px;
+}
+
+/* ── Related case studies ── */
+.related {
+  padding: var(--section-y) var(--gutter);
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+}
+
+.relatedHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .practicesGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .practicesAside {
+    position: static;
+  }
+
+  /* The index is redundant once the cards stack under the heading. */
+  .index {
+    display: none;
+  }
+
+  .practicesIntro {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 960px) {
+  .overviewGrid,
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .splitHead,
+  .panel {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .panelMedia {
+    min-height: 260px;
+  }
+
+  .stackRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 960px) {
+  .overviewGrid,
+  .relatedGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .practice {
+    grid-template-columns: 1fr;
+  }
+
+  .practiceMedia {
+    min-height: 180px;
+  }
+
+  .practiceBody {
+    padding: 26px 22px 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .overviewCard {
+    padding: 30px 24px 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+
+  .practiceImg {
+    transition: none;
+  }
+}
